@@ -49,15 +49,15 @@ module WelcomeHelper
 
   def render_piece(result)
     if result[:data_type] == "music"
-      render partial: "content/music", locals: {music: result}
+      render partial: "contents/music", locals: {music: result}
     elsif result[:data_type] == "poem"
-      render partial: "content/poem", locals: {poem: result}
+      render partial: "contents/poem", locals: {poem: result}
     elsif result[:data_type] == "movie"
-      render partial: "content/movie", locals: {movie: result}
+      render partial: "contents/movie", locals: {movie: result}
     elsif result[:data_type] == "book"
-      render partial: "content/book", locals: {book: result}
+      render partial: "contents/book", locals: {book: result}
     elsif result[:data_type] == "art"
-      render partial: "content/art", locals: {art: result}
+      render partial: "contents/art", locals: {art: result}
     end
   end
 end

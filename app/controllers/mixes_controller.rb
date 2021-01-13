@@ -7,9 +7,9 @@ class MixesController < ApplicationController
     params.inspect
     mix = current_user.mixes.find_or_create_by(mix_params)
     media_data = eval(media_params)
-    media = Media.find_or_create_by(url: media_data[:url])
-    media.update(media_data)
-    mix.medias << media unless mix.medias.include?(media)
+    content = Content.find_or_create_by(url: media_data[:url])
+    content.update(media_data)
+    mix.contents << content unless mix.contents.include?(content)
   
   end
 
