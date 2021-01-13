@@ -3,7 +3,7 @@ class CreateContents < ActiveRecord::Migration[6.1]
     create_table :contents do |t|
       t.string :data_type
       t.string :title
-      t.string :creators
+      t.string :creators, array: true, default: []
       t.string :date 
       t.string :image
       t.string :url

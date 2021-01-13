@@ -1,0 +1,5 @@
+<%=render partial: 'users/user', locals: {user: @user}%>
+
+<%@mixes.each do |m|%>
+  <%=render partial: 'mix', locals: {mix: m}%>
+<%end%>

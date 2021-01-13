@@ -1,0 +1,6 @@
+<div class="mix">
+  <h2><%=mix.title%></h2>
+  <%mix.contents.each do |content|%>
+    <%=render partial: 'contents/content', locals: {content: content}%>
+  <%end%>
+</div>

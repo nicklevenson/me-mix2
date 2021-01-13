@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_01_13_180416) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "mix_id"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_01_13_180416) do
   create_table "contents", force: :cascade do |t|
     t.string "data_type"
     t.string "title"
-    t.string "creators"
+    t.string "creators", default: [], array: true
     t.string "date"
     t.string "image"
     t.string "url"
