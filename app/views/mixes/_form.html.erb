@@ -6,11 +6,11 @@
 <%=form_for Mix.new, method: :post do |f|%>
   <input type="hidden" name="media" value="<%=media%>">
   <input type="hidden" name="lasturl" value="<%=request.url%>">
-    Add To: <%=f.text_field 'title', list: 'title', required: true%> 
+    Add To: <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off'%> 
   <datalist id="title">
   <%current_user.mixes.each do |m|%>
     <option value="<%=m.title%>"></option>
   <%end%>
   </datalist>
-  <%=f.submit 'Add', data: { disable_with: "Added" }%>
+  <%=f.submit 'Add', data: { disable_with: false }%>
 <%end%>
