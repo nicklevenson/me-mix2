@@ -33,6 +33,9 @@ class MixesController < ApplicationController
   end
 
   def update
+
+    @mix = Mix.find(params[:id])
+    @mix.update(mix_update_params)
     byebug
   end
 
@@ -44,5 +47,9 @@ class MixesController < ApplicationController
 
   def media_params
     params.require(:media)
+  end
+
+  def mix_update_params
+    params.require(:mix).permit(:title, :description, :contents)
   end
 end
