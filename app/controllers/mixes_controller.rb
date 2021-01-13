@@ -24,7 +24,7 @@ class MixesController < ApplicationController
   end
 
   def show
-
+    @mix = Mix.find(params[:id])
   end
 
   private
