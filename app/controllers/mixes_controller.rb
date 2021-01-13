@@ -2,11 +2,11 @@ class MixesController < ApplicationController
   include MixesHelper
 
   def index
-    @user = current_user
+    @user = User.find(params[:user_id])
     @mixes = @user.mixes
   end
   def new
-
+    @mix = Mix.new
   end
   def create
     params.inspect
@@ -25,6 +25,15 @@ class MixesController < ApplicationController
 
   def show
     @mix = Mix.find(params[:id])
+  end
+
+  def edit
+    @mix = Mix.find(params[:id])
+    return head(:forbidden) unless (access(@mix))
+  end
+
+  def update
+
   end
 
   private
