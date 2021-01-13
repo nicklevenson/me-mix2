@@ -10,9 +10,9 @@ module MeMix2
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
+    RSpotify::authenticate(ENV["SPOTIFY_API_KEY"], ENV["SPOTIFY_API_SECRET"])
     # Configuration for the application, engines, and railties goes here.
-    #
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', 'apis')]
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
