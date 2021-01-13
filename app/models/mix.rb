@@ -5,4 +5,6 @@ class Mix < ApplicationRecord
   has_many :likes
   has_many :comments
 
+  validates :title, presence: true
+
 end

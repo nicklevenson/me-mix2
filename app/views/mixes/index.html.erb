@@ -1,5 +1,8 @@
 <%=render partial: 'users/user', locals: {user: @user}%>
 
+<h2>Your mixes</h2>
 <%@mixes.each do |m|%>
-  <%=render partial: 'mix', locals: {mix: m}%>
+  <div class="mix-container">
+    <%=render partial: 'mix', locals: {mix: m}%>
+  </div>
 <%end%>
