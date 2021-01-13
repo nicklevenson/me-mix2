@@ -5,6 +5,20 @@
   <%=f.text_area :description%>
   <br>
   <%@mix.contents.each do |c|%>
+    <div id="<%=c.id%>">
     <%=render_piece(c)%>
+    <input type="hidden" name="contents[]" value="<%=c%>">
+    <input type="button" value="Remove from mix" onclick="if(confirm('This item and its notes will be removed from your mix. Are you sure?')) {deleteContent('<%=c.id%>')}">
+    </div>
   <%end%>
+  <%=f.submit%>
 <%end%>
+
+
+<script type="text/Javascript">
+  function deleteContent(id) {
+    var content = document.getElementById(id)
+    content.remove()
+  }
+
+</script>

@@ -33,7 +33,7 @@ class MixesController < ApplicationController
   end
 
   def update
-
+    byebug
   end
 
   private
