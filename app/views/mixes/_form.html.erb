@@ -1,0 +1,14 @@
+<%=form_with url: '/mixes', method: :post do |f|%>
+
+  <input type="hidden" name="media" value="<%=media%>">
+  <%=fields_for Mix.new do |m|%>
+    Add To: <%=m.text_field 'title', list: 'title'%>
+  <%end%>
+  
+  <datalist id="title">
+  <%current_user.mixes.each do |m|%>
+    <option value="<%=m.title%>"></option>
+  <%end%>
+  </datalist>
+  <%=f.submit 'Add'%>
+<%end%>

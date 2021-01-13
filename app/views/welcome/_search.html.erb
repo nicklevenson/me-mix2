@@ -1,0 +1,6 @@
+ <%=form_with url: '/', method: :get do |f|%>
+  <%=f.label :query, "Search for:"%>
+  <%=f.text_field :query%>
+  <%=select_tag "filter", "<option>All</option><option>Music</option><option>Poetry</option><option>Movies/TV</option><option>Books</option><option>Artwork</option>".html_safe%>
+  <%=f.submit "Search"%>
+<%end%>
