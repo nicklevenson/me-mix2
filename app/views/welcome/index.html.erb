@@ -1,5 +1,4 @@
 <%= render partial: 'welcome/search'%>
 <%@results.each do |result|%>
   <%=render partial: 'contents/content', locals: {content: result}%>
-  <%=render partial: 'mixes/add_to_form', locals: {media: result} if current_user%>
 <%end%>

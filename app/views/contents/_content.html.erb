@@ -1,1 +1,2 @@
   <%=render_piece(content)%>
+  <%=render partial: 'mixes/add_to_form', locals: {media: content} if current_user%>
