@@ -11,6 +11,14 @@ module MixesHelper
     end
   end
 
+  def no_contents(mix)
+    if access
+      if mix.contents.empty?
+        link_to "It's time to add some things to this mix!", "/"
+      end
+    end
+  end
+
   def access
     if current_user
       if current_user.id == params[:user_id].to_i

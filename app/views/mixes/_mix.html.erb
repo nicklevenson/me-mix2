@@ -3,4 +3,5 @@
   <%mix.contents.each do |content|%>
     <%=render partial: 'contents/content', locals: {content: content}%>
   <%end%>
+  <%=no_contents(mix)%>
 </div>
