@@ -35,8 +35,9 @@ class MixesController < ApplicationController
   def update
 
     @mix = Mix.find(params[:id])
+    # @mix.contents = []
     @mix.update(mix_update_params)
-    byebug
+    redirect_to user_mix_path(current_user, @mix)
   end
 
   private
@@ -50,6 +51,6 @@ class MixesController < ApplicationController
   end
 
   def mix_update_params
-    params.require(:mix).permit(:title, :description, :contents)
+    params.require(:mix).permit(:title, :description)
   end
 end
