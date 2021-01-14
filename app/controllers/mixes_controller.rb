@@ -37,7 +37,7 @@ class MixesController < ApplicationController
 
   def edit
     @mix = Mix.find(params[:id])
-    return head(:forbidden) unless (access(@mix))
+    return head(:forbidden) unless (access)
   end
 
   def update
