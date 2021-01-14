@@ -4,7 +4,7 @@
   <%end%>
 <%end%>
 
-<%=form_for @mix do |f|%>
+<%=form_with model: @mix, url: user_mix_path do |f|%>
   <%=f.label :title%>
   <%=f.text_field :title%>
   <%=f.label :description%>
