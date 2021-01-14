@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   resources :contents, only: [:show, :destroy]
+  resources :notes, only: [:destroy]
   # resources :mixes
   resources :users do
     resources :mixes
