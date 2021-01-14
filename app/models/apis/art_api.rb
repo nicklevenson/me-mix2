@@ -15,7 +15,7 @@ class ArtApi
     end
     filtered_data = []
     results.each do |r|
-      filtered_data << {data_type: "art", title: r["title"], creators: r["artistDisplayName"], date: r["objectEndDate"],image: r["primaryImageSmall"], url: r["objectURL"]}
+      filtered_data << {data_type: "art", title: r["title"], creators: [r["artistDisplayName"]], date: r["objectEndDate"],image: r["primaryImageSmall"], url: r["objectURL"]}
     end
     filtered_data
   

@@ -1,6 +1,10 @@
 <div class="card">
   <h3><i><%=art[:title]%></i></h3>
-  <h3><%=art[:creator]%></h3>
+  <%if art[:creators]%>
+    <%art[:creators].each do |creator|%>
+      <h4><%=creator%></h4>
+    <%end%>
+  <%end%>
   <h5><%=art[:date]%></h5>
   <a href="<%=art[:url]%>"target="_blank"><img src="<%=art[:image]%>" width="300px"></a>
 </div>
