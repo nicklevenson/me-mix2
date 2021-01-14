@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_14_202255) do
+ActiveRecord::Schema.define(version: 2021_01_14_203157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,14 +41,6 @@ ActiveRecord::Schema.define(version: 2021_01_14_202255) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "mix_content_notes", force: :cascade do |t|
-    t.string "note"
-    t.integer "mix_id"
-    t.integer "content_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "mix_contents", force: :cascade do |t|
     t.integer "mix_id"
     t.integer "content_id"
@@ -63,6 +55,14 @@ ActiveRecord::Schema.define(version: 2021_01_14_202255) do
     t.boolean "public"
     t.string "background_color"
     t.string "font_color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "content"
+    t.integer "mix_id"
+    t.integer "content_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

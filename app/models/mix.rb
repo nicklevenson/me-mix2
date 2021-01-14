@@ -4,7 +4,7 @@ class Mix < ApplicationRecord
   has_many :contents, through: :mix_contents
   has_many :likes
   has_many :comments
-  has_many :mix_content_notes
+  has_many :notes
 
   validates :title, presence: true
 
