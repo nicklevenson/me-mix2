@@ -2,6 +2,8 @@ module WelcomeHelper
   def filter 
     if params[:query] && params[:filter] == "All"
       get_all_results
+    elsif params[:query] && params[:filter] == "Mixes"
+      get_mixes
     elsif params[:query] && params[:filter] == "Music"
       get_music
     elsif params[:query] && params[:filter] == "Poetry"
@@ -17,16 +19,19 @@ module WelcomeHelper
 
   def get_all_results
       q = params[:query]
+      @mixes = Mix.where(title: q)
       @songs = SpotifyApi.new.fetch_music(q)
       @poems = PoemApi.new.scrape_poems(q)
       @movies = MovieApi.new.fetch_movies(q)
       @books = GoogleApi.new.fetch_books(q)
       @art = ArtApi.new.fetch_art(q)
-      results = @songs + @poems + @movies + @books + @art
+      results = @mixes + @songs + @poems + @movies + @books + @art
       results
   end
 
-
+  def get_mixes
+    Mix.where(title: params[:query]) 
+  end
   def get_music
     SpotifyApi.new.fetch_music(params[:query])
   end
@@ -58,6 +63,8 @@ module WelcomeHelper
       render partial: "contents/book", locals: {book: result}
     elsif result[:data_type] == "art"
       render partial: "contents/art", locals: {art: result}
+    else
+      render partial: "mixes/mix", locals: {mix: result}
     end
   end
 end
