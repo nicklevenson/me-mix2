@@ -7,6 +7,7 @@ class MixesController < ApplicationController
   end
   def new
     @mix = Mix.new
+    redirect_to '/login' unless (access)
   end
   def create
     @mix = current_user.mixes.find_or_create_by(mix_params)
@@ -29,7 +30,7 @@ class MixesController < ApplicationController
 
   def edit
     @mix = Mix.find(params[:id])
-    return head(:forbidden) unless (access)
+    redirect_to '/login' unless (access)
   end
 
   def update

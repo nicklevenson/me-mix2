@@ -4,7 +4,7 @@
   <%end%>
 <%end%>
 
-<%=form_with model: @mix, url: user_mix_path do |f|%>
+<%=form_for [current_user, @mix] do |f|%>
   <%=f.label :title%>
   <%=f.text_field :title%>
   <%=f.label :description%>
@@ -14,7 +14,7 @@
     
     <div id="<%=c.id%>">
     <%=render_piece(c)%>
-    <%=link_to "delete", content_path(c, mix_id: @mix.id, lasturl: request.url), method: :delete%>
+    <%=link_to "Remove from mix", content_path(c, mix_id: @mix.id, lasturl: request.url), method: :delete%>
     <!-- <input type="hidden" name="mix[content][]" value="<%=c.attributes%>">
     <input type="button" value="Remove from mix" onclick="if(confirm('This item and its notes will be removed from your mix. Are you sure?')) {deleteContent('<%=c.id%>')}"> -->
     </div>
