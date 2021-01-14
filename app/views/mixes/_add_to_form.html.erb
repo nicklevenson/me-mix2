@@ -3,21 +3,21 @@
     <%= msg %>
   </div>
 <%end%>
+
 <%if current_user%>
-  <%=form_for Mix.new, method: :post do |f|%>
-    <%if media.respond_to?(:id)%>
-      <input type="hidden" name="content_id" value="<%=media.id%>">
-    <%else%>  
-      <input type="hidden" name="media" value="<%=media%>">
-    <%end%>
+  <%=form_for current_user.mixes.build, url: new_user_mix_path(current_user) do |f|%>
     <input type="hidden" name="lasturl" value="<%=request.url%>">
+    <%=fields_for Content.new do |c|%>
+      <%=c.hidden_field :title, value: media[:title]%>
+    <%end%>
+
       Add To: <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off'%> 
     <datalist id="title">
-    <%current_user.mixes.each do |m|%>
-      <option value="<%=m.title%>"></option>
-    <%end%>
+      <%current_user.mixes.each do |m|%>
+        <option value="<%=m.title%>"></option>
+      <%end%>
     </datalist>
-    <%=f.submit 'Add', data: { disable_with: false}%>
+      <%=f.submit 'Add', data: { disable_with: false}%>
   <%end%>
 <%else%>
   <br>
