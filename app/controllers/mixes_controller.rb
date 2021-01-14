@@ -33,7 +33,7 @@ class MixesController < ApplicationController
     if @mix.valid?
       if params[:content]
         @mix.contents <<  Content.find_or_create_by(content_params)
-        byebug
+        # byebug
       else
         redirect_to user_mix_path(current_user, @mix)
       end
