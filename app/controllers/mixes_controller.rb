@@ -12,11 +12,17 @@ class MixesController < ApplicationController
     params.inspect
     mix = current_user.mixes.find_or_create_by(mix_params)
     if mix.valid?
-      media_data = eval(media_params)
-      content = Content.find_or_create_by(url: media_data[:url]) do |c| 
-        c.update(media_data)
+      if params[:content_id]
+        content = Content.find(params[:content_id])
+        mix.contents << content unless mix.contents.include?(content)
+        redirect_to "#{params[:lasturl]}"
+      else 
+        media_data = eval(media_params)
+        content = Content.find_or_create_by(url: media_data[:url]) do |c| 
+          c.update(media_data)
+        end
+        mix.contents << content unless mix.contents.include?(content)
       end
-      mix.contents << content unless mix.contents.include?(content)
     else
       flash[:message] = "Please give your mix a name"
       redirect_to "#{params[:lasturl]}"

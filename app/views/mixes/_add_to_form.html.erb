@@ -4,7 +4,11 @@
   </div>
 <%end%>
 <%=form_for Mix.new, method: :post do |f|%>
-  <input type="hidden" name="media" value="<%=media%>">
+  <%if media.respond_to?(:id)%>
+    <input type="hidden" name="content_id" value="<%=media.id%>">
+  <%else%>  
+    <input type="hidden" name="media" value="<%=media%>">
+  <%end%>
   <input type="hidden" name="lasturl" value="<%=request.url%>">
     Add To: <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off'%> 
   <datalist id="title">
