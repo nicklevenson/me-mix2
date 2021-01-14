@@ -9,7 +9,7 @@ class Mix < ApplicationRecord
   validates :title, presence: true
 
   accepts_nested_attributes_for :contents
-  accepts_nested_attributes_for :notes
+  accepts_nested_attributes_for :notes, reject_if: proc {|attributes| attributes[:text].blank?}
 
   # def notes_attributes=(notes_attributes)
   #   notes_attributes.each do |n|
