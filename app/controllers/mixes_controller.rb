@@ -16,7 +16,7 @@ class MixesController < ApplicationController
         content = Content.find(params[:content_id])
         mix.contents << content unless mix.contents.include?(content)
         redirect_to "#{params[:lasturl]}"
-      else 
+      elsif params[:media]
         media_data = eval(media_params)
         content = Content.find_or_create_by(url: media_data[:url]) do |c| 
           c.update(media_data)
@@ -27,6 +27,7 @@ class MixesController < ApplicationController
       flash[:message] = "Please give your mix a name"
       redirect_to "#{params[:lasturl]}"
     end
+    redirect_to user_mix_path(current_user, mix)
   end
 
   def show
