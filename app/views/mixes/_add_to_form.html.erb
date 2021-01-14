@@ -3,18 +3,23 @@
     <%= msg %>
   </div>
 <%end%>
-<%=form_for Mix.new, method: :post do |f|%>
-  <%if media.respond_to?(:id)%>
-    <input type="hidden" name="content_id" value="<%=media.id%>">
-  <%else%>  
-    <input type="hidden" name="media" value="<%=media%>">
+<%if current_user%>
+  <%=form_for Mix.new, method: :post do |f|%>
+    <%if media.respond_to?(:id)%>
+      <input type="hidden" name="content_id" value="<%=media.id%>">
+    <%else%>  
+      <input type="hidden" name="media" value="<%=media%>">
+    <%end%>
+    <input type="hidden" name="lasturl" value="<%=request.url%>">
+      Add To: <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off'%> 
+    <datalist id="title">
+    <%current_user.mixes.each do |m|%>
+      <option value="<%=m.title%>"></option>
+    <%end%>
+    </datalist>
+    <%=f.submit 'Add', data: { disable_with: false}%>
   <%end%>
-  <input type="hidden" name="lasturl" value="<%=request.url%>">
-    Add To: <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off'%> 
-  <datalist id="title">
-  <%current_user.mixes.each do |m|%>
-    <option value="<%=m.title%>"></option>
-  <%end%>
-  </datalist>
-  <%=f.submit 'Add', data: { disable_with: false}%>
+<%else%>
+  <br>
+  <%=link_to 'Login to add to a mix!', '/login'%>
 <%end%>
