@@ -14,6 +14,8 @@ module WelcomeHelper
       get_books
     elsif params[:query] && params[:filter] == "Artwork"
       get_art
+    else
+      Mix.all
     end
   end
 

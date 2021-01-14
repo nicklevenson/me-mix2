@@ -1,4 +1,9 @@
 <%= render partial: 'welcome/search'%>
+
 <%@results.each do |result|%>
-  <%=render partial: 'contents/content', locals: {content: result}%>
+  <%if result.respond_to?(:id)%>
+    <%=render partial: 'mixes/mix', locals: {mix: result}%>
+  <%else%>
+    <%=render partial: 'contents/content', locals: {content: result}%>
+  <%end%>
 <%end%>
