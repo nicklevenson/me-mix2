@@ -10,24 +10,25 @@ class MixesController < ApplicationController
   end
   def create
     params.inspect
-    mix = current_user.mixes.find_or_create_by(mix_params)
-    if mix.valid?
+    @mix = current_user.mixes.find_or_create_by(mix_params)
+    if @mix.valid?
       if params[:content_id]
         content = Content.find(params[:content_id])
-        mix.contents << content unless mix.contents.include?(content)
+        @mix.contents << content unless @mix.contents.include?(content)
         redirect_to "#{params[:lasturl]}"
       elsif params[:media]
         media_data = eval(media_params)
         content = Content.find_or_create_by(url: media_data[:url]) do |c| 
           c.update(media_data)
         end
-        mix.contents << content unless mix.contents.include?(content)
+        @mix.contents << content unless @mix.contents.include?(content)
+      else
+        redirect_to user_mix_path(current_user, @mix)
       end
     else
-      flash[:message] = "Please give your mix a name"
-      redirect_to "#{params[:lasturl]}"
+      render :new
     end
-    redirect_to user_mix_path(current_user, mix)
+    
   end
 
   def show
