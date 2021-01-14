@@ -44,7 +44,7 @@ class MixesController < ApplicationController
   private
 
   def mix_params
-    params.require(:mix).permit(:title)
+    params.require(:mix).permit(:title, :description)
   end
 
   def content_params

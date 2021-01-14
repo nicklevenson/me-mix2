@@ -1,5 +1,7 @@
 <div class="mix">
   <h3><%=link_to mix.title, user_mix_path(mix.user, mix)%> by <%=link_to mix.user.username, user_path(mix.user)%> <%=edit_link(mix)%></h3>
+  <i><%=mix.description%></i>
+  <br>
   <%mix.contents.each do |content|%>
     <%=render partial: 'contents/content', locals: {content: content}%>
   <%end%>
