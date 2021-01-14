@@ -18,7 +18,10 @@
     <!-- <input type="hidden" name="mix[content][]" value="<%=c.attributes%>">
     <input type="button" value="Remove from mix" onclick="if(confirm('This item and its notes will be removed from your mix. Are you sure?')) {deleteContent('<%=c.id%>')}"> -->
     </div>
-   
+    <%=fields_for c.notes.build do |n|%>
+      <%=n.label "Note:"%>
+      <%=n.text_area :text%>
+    <%end%>
   <%end%>
   <%=f.submit%>
 <%end%>

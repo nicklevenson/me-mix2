@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_01_14_203157) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.text "content"
+    t.text "text"
     t.integer "mix_id"
     t.integer "content_id"
     t.datetime "created_at", precision: 6, null: false
