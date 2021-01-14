@@ -8,7 +8,15 @@
   <%=form_for current_user.mixes.build, url: new_user_mix_path(current_user) do |f|%>
     <input type="hidden" name="lasturl" value="<%=request.url%>">
     <%=fields_for Content.new do |c|%>
+      <%=c.hidden_field :data_type, value: media[:data_type]%>
       <%=c.hidden_field :title, value: media[:title]%>
+      <%media[:creators].each do |creator|%>
+        <%=c.hidden_field :creators, value: creator%>
+      <%end%>
+      <%=c.hidden_field :date, value: media[:date]%>
+      <%=c.hidden_field :image, value: media[:image]%>
+      <%=c.hidden_field :url, value: media[:url]%>
+      <%=c.hidden_field :description, value: media[:description]%>
     <%end%>
 
       Add To: <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off'%> 
