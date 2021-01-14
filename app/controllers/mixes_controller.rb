@@ -9,6 +9,7 @@ class MixesController < ApplicationController
     @mix = Mix.new
   end
   def create
+    byebug
     params.inspect
     @mix = current_user.mixes.find_or_create_by(mix_params)
     if @mix.valid?

@@ -5,7 +5,7 @@
 <%end%>
 
 <%if current_user%>
-  <%=form_for current_user.mixes.build, url: new_user_mix_path(current_user) do |f|%>
+  <%=form_with model: current_user.mixes.build, url: user_mixes_path(current_user) do |f|%>
     <input type="hidden" name="lasturl" value="<%=request.url%>">
     <%=fields_for Content.new do |c|%>
       <%=c.hidden_field :data_type, value: media[:data_type]%>
