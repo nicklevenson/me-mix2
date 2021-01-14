@@ -13,7 +13,7 @@ class Mix < ApplicationRecord
 
   # def notes_attributes=(notes_attributes)
   #   notes_attributes.each do |n|
-  #     self.
+    
   #     byebug
   #   end
   # end

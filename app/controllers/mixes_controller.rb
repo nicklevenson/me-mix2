@@ -54,6 +54,6 @@ class MixesController < ApplicationController
   end
 
   def mix_update_params
-    params.require(:mix).permit(:title, :description, notes_attributes: [:text, :content_id])
+    params.require(:mix).permit(:title, :description, notes_attributes: [:text, :content_id, :id])
   end
 end
