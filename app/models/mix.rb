@@ -9,5 +9,12 @@ class Mix < ApplicationRecord
   validates :title, presence: true
 
   accepts_nested_attributes_for :contents
- 
+  accepts_nested_attributes_for :notes
+
+  # def notes_attributes=(notes_attributes)
+  #   notes_attributes.each do |n|
+  #     self.
+  #     byebug
+  #   end
+  # end
 end

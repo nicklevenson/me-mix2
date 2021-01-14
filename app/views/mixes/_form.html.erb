@@ -11,26 +11,13 @@
   <%=f.text_area :description%>
   <br>
   <%@mix.contents.each do |c|%>
-    
-    <div id="<%=c.id%>">
     <%=render_piece(c)%>
     <%=link_to "Remove from mix", content_path(c, mix_id: @mix.id, lasturl: request.url), method: :delete%>
-    <!-- <input type="hidden" name="mix[content][]" value="<%=c.attributes%>">
-    <input type="button" value="Remove from mix" onclick="if(confirm('This item and its notes will be removed from your mix. Are you sure?')) {deleteContent('<%=c.id%>')}"> -->
-    </div>
-    <%=fields_for c.notes.build do |n|%>
-      <%=n.label "Note:"%>
-      <%=n.text_area :text%>
+    <%=f.fields_for :notes, @mix.notes.build do |note_fields|%>
+      <%=note_fields.text_area :text%>
+      <%=note_fields.hidden_field :content_id, value: c.id%>
     <%end%>
+   
   <%end%>
   <%=f.submit%>
 <%end%>
-
-
-<script type="text/Javascript">
-  function deleteContent(id) {
-    var content = document.getElementById(id)
-    content.remove()
-  }
-
-</script>

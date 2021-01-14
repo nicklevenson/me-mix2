@@ -21,7 +21,7 @@ class MixesController < ApplicationController
     else
       render :new
     end
-    
+    byebug
   end
 
   def show
@@ -34,10 +34,12 @@ class MixesController < ApplicationController
   end
 
   def update
-
+   
     @mix = Mix.find(params[:id])
     # @mix.contents = []
     @mix.update(mix_update_params)
+  
+   
     redirect_to user_mix_path(current_user, @mix)
   end
 
@@ -52,6 +54,6 @@ class MixesController < ApplicationController
   end
 
   def mix_update_params
-    params.require(:mix).permit(:title, :description)
+    params.require(:mix).permit(:title, :description, notes_attributes: [:text, :content_id])
   end
 end
