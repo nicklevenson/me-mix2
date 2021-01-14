@@ -14,7 +14,7 @@ class MovieApi
       filtered_data << {data_type: "movie",
                         title: movie.title, 
                         date: movie.year, 
-                        creators: movie.director, 
+                        creators: [movie.director], 
                         description: movie.plot, 
                         image: movie.poster, 
                         url: "http://imdb.com/title/#{movie.imdb_id}"}
