@@ -19,7 +19,7 @@
       <%=c.hidden_field :description, value: media[:description]%>
     <%end%>
 
-      Add To: <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off'%> 
+      Add To: <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off', placeholder: "Create new mix"%> 
     <datalist id="title">
       <%current_user.mixes.each do |m|%>
         <option value="<%=m.title%>"></option>

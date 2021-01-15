@@ -2,9 +2,9 @@ class Mix < ApplicationRecord
   belongs_to :user
   has_many :mix_contents
   has_many :contents, through: :mix_contents
-  has_many :likes
-  has_many :comments
-  has_many :notes
+  has_many :likes, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+  has_many :notes, :dependent => :destroy
 
   validates :title, presence: true
 
