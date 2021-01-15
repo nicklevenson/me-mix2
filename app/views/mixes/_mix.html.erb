@@ -10,7 +10,7 @@
     <%end%>
   <%end%>
   <%=no_contents(mix)%>
-  <div class="<%=mix.id%>comments">
+  <div class="comments">
     <%= turbo_stream_from "#{mix.id}comments" %>
     <%= turbo_frame_tag "#{mix.id}comments" do %>
       <%=render mix.comments%>
