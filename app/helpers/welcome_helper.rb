@@ -1,19 +1,23 @@
 module WelcomeHelper
   def filter 
-    if params[:query] && params[:filter] == "All"
-      get_all_results
-    elsif params[:query] && params[:filter] == "Mixes"
-      get_mixes
-    elsif params[:query] && params[:filter] == "Music"
-      get_music
-    elsif params[:query] && params[:filter] == "Poetry"
-      get_poems
-    elsif params[:query] && params[:filter] == "Movies/TV"
-      get_movies
-    elsif params[:query] && params[:filter] == "Books"
-      get_books
-    elsif params[:query] && params[:filter] == "Artwork"
-      get_art
+    if params[:query] != ""
+      if params[:query] && params[:filter] == "All"
+        get_all_results
+      elsif params[:query] && params[:filter] == "Mixes"
+        get_mixes
+      elsif params[:query] && params[:filter] == "Music"
+        get_music
+      elsif params[:query] && params[:filter] == "Poetry"
+        get_poems
+      elsif params[:query] && params[:filter] == "Movies/TV"
+        get_movies
+      elsif params[:query] && params[:filter] == "Books"
+        get_books
+      elsif params[:query] && params[:filter] == "Artwork"
+        get_art
+      else
+        Mix.all
+      end
     else
       Mix.all
     end

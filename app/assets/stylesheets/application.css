@@ -13,12 +13,18 @@
  *= require_tree .
  *= require_self
  */
- .card {
+
+ .card-container {
   display: inline-block;
   width: 350px;
-  height: 400px;
+  height: 500px;
   padding: 3px;
   margin: 1px;
   overflow: scroll;
   border: solid thin black
+ }
+ .card {
+  width: 350px;
+  height: 400px;
+  overflow: scroll;
 }
