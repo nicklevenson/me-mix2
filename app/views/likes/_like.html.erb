@@ -1,3 +1,10 @@
 <div class="like">
-  <%=button_to "Like Mix", likes_path(info: {mix_id: mix.id, user_id: current_user.id}), method: :post, data: { disable_with: "Liked"}%>
+  <%if current_user && current_user.likes.any? {|like| like.mix_id == mix.id}%>
+    <%=button_tag "Liked", disabled:true%>
+  <%elsif current_user && !(current_user.likes.any? {|like| like.mix_id == mix.id})%>
+    
+    <%=button_to "Like Mix", likes_path(info: {mix_id: mix.id, user_id: current_user.id}), method: :post, data: { disable_with: "Liked"}%>
+  <%else%>
+    <%=button_to "Like Mix", url: '/login'%>
+  <%end%>
 </div>
