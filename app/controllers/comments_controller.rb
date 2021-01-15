@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
+    Comment.find(params[:id]).destroy
   end
   private
 
