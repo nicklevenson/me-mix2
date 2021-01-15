@@ -1,5 +1,5 @@
 <div class="comment">
   <%= turbo_frame_tag dom_id(comment) do %>
-    <%=comment.user.username%>: <%=comment.content%>
+    <%=link_to(comment.user.username, user_path(comment.user), method: :get,'data-no-turbolink' => true)%>: <%=comment.content%>
   <%end%>
 </div>
