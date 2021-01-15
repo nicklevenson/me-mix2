@@ -1,4 +1,5 @@
-<%=form_for mix.comments.build do |f|%>
+<%=form_for mix.comments.build, remote: true  do |f|%>
+  <%=f.hidden_field :mix_id, value: mix.id%>
   <%=f.label "New Comment"%>
   <%=f.text_field :content%>
   <%=f.submit%>
