@@ -1,5 +1,8 @@
 <div class="comment">
   <%= turbo_frame_tag dom_id(comment) do %>
     <%=link_to(comment.user.username, user_path(comment.user), method: :get,'data-no-turbolink' => true)%>: <%=comment.content%>
+    <%if current_user && current_user.id == comment.user.id%>
+      <%=button_to "Delete Comment", comment_path(comment), method: :delete%>
+    <%end%>
   <%end%>
 </div>
