@@ -1,5 +1,5 @@
 <div class="comment">
   <%= turbo_frame_tag dom_id(comment) do %>
-    <%=comment.content%>
+    <%=comment.user.username%>: <%=comment.content%>
   <%end%>
 </div>

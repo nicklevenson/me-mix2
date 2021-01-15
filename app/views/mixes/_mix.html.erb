@@ -11,6 +11,7 @@
   <%end%>
   <%=no_contents(mix)%>
   <div class="comments">
+    <h3>Comments:</h3>
     <%= turbo_stream_from "#{mix.id}comments" %>
     <%= turbo_frame_tag "#{mix.id}comments" do %>
       <%=render mix.comments%>
