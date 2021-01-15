@@ -10,4 +10,11 @@
     <%end%>
   <%end%>
   <%=no_contents(mix)%>
+  <div class="comments">
+    <%= turbo_stream_from "comments" %>
+    <%= turbo_frame_tag "comments" do %>
+      <%=render mix.comments%>
+    <%end%>
+  </div>
+  <%= render partial: 'comments/new', locals: {mix: mix} %>
 </div>
