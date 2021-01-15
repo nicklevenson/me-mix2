@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   resources :contents, only: [:show, :destroy]
   resources :notes, only: [:destroy]
+  resources :likes, only: [:create, :destroy]
+  resources :comments, only: [:new, :create, :destroy]
   # resources :mixes
   resources :users do
     resources :mixes
