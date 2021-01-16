@@ -2,7 +2,7 @@
 
 <h2>Mixes  <%=new_link%></h2> 
 <%@mixes.each do |m|%>
-  <div class="mix-container">
+  <div class="card-container">
     <%=render partial: 'mix', locals: {mix: m}%>
   </div>
 <%end%>

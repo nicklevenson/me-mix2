@@ -3,15 +3,19 @@ class ArtApi
     url = "https://collectionapi.metmuseum.org/public/collection/v1/search?q=#{query}"
     uri = URI.parse(url)
     response = Net::HTTP.get_response(uri)
-    ids = JSON.parse(response.body)["objectIDs"][0..19]
+    if JSON.parse(response.body)["objectIDs"]
+      ids = JSON.parse(response.body)["objectIDs"][0..19]
+    end
     # byebug
     results = []
-    ids.each do |id|
-      url = "https://collectionapi.metmuseum.org/public/collection/v1/objects/#{id}"
-      uri = URI.parse(url)
-      response = Net::HTTP.get_response(uri)
-      result = JSON.parse(response.body)
-      results << result
+    if ids
+      ids.each do |id|
+        url = "https://collectionapi.metmuseum.org/public/collection/v1/objects/#{id}"
+        uri = URI.parse(url)
+        response = Net::HTTP.get_response(uri)
+        result = JSON.parse(response.body)
+        results << result
+      end
     end
     filtered_data = []
     results.each do |r|

@@ -2,7 +2,9 @@
 
 <%@results.each do |result|%>
   <%if result.respond_to?(:id)%>
+  <div class='card-container'>
     <%=render partial: 'mixes/mix', locals: {mix: result}%>
+  </div>
   <%else%>
     <%=render partial: 'contents/content', locals: {content: result}%>
   <%end%>

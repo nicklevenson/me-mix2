@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   root 'welcome#index'
-  get 'auth/facebook/callback', to: "sessions#omniauth"
+  get 'auth/:provider/callback', to: "sessions#omniauth"
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
