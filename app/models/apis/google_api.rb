@@ -5,16 +5,17 @@ class GoogleApi
     response = Net::HTTP.get_response(uri)
     json = JSON.parse(response.body)["items"]
     books = []
-
-    json.each do |book|
-      if book["volumeInfo"]["imageLinks"]
-        books << {
-                  data_type: "book",
-                  title: book["volumeInfo"]["title"], 
-                  creators: book["volumeInfo"]["authors"], 
-                  description:  book["volumeInfo"]["description"],
-                  image: book["volumeInfo"]["imageLinks"]["thumbnail"],
-                  url: book["volumeInfo"]["canonicalVolumeLink"]}
+    if json
+      json.each do |book|
+        if book["volumeInfo"]["imageLinks"]
+          books << {
+                    data_type: "book",
+                    title: book["volumeInfo"]["title"], 
+                    creators: book["volumeInfo"]["authors"], 
+                    description:  book["volumeInfo"]["description"],
+                    image: book["volumeInfo"]["imageLinks"]["thumbnail"],
+                    url: book["volumeInfo"]["canonicalVolumeLink"]}
+        end
       end
     end
     books
