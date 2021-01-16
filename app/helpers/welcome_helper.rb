@@ -5,15 +5,15 @@ module WelcomeHelper
         get_all_results
       elsif params[:query] && params[:filter] == "Mixes"
         get_mixes
-      elsif params[:query] && params[:filter] == "Music"
+      elsif params[:query] && params[:filter] == "Music (Spotify)"
         get_music
-      elsif params[:query] && params[:filter] == "Poetry"
+      elsif params[:query] && params[:filter] == "Poetry (Poetry Foundation)"
         get_poems
-      elsif params[:query] && params[:filter] == "Movies/TV"
+      elsif params[:query] && params[:filter] == "Movies/TV (IMDB)"
         get_movies
-      elsif params[:query] && params[:filter] == "Books"
+      elsif params[:query] && params[:filter] == "Books (Google Books)"
         get_books
-      elsif params[:query] && params[:filter] == "Artwork"
+      elsif params[:query] && params[:filter] == "Artwork (The Met)"
         get_art
       else
         Mix.all

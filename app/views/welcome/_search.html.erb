@@ -1,6 +1,6 @@
  <%=form_with url: '/', method: :get do |f|%>
   <%=f.label :query, "Search for:"%>
-  <%=f.text_field :query%>
-  <%=select_tag "filter", "<option>All</option><option>Mixes</option><option>Music</option><option>Poetry</option><option>Movies/TV</option><option>Books</option><option>Artwork</option>".html_safe%>
-  <%=f.submit "Search"%>
+  <%=f.text_field :query, placeholder: "Anything"%>
+  In: <%=select_tag "filter", "<option>All</option><option>Mixes</option><option>Music (Spotify)</option><option>Poetry (Poetry Foundation)</option><option>Movies/TV (IMDB)</option><option>Books (Google Books)</option><option>Artwork (The Met)</option>".html_safe%>
+  <%=f.submit "Search", data: {disable_with: "Searching..."}%>
 <%end%>
