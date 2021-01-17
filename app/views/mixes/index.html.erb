@@ -3,6 +3,8 @@
 <h2>Mixes  <%=new_link%></h2> 
 <%@mixes.each do |m|%>
   <div class="card-container">
-    <%=render partial: 'mix', locals: {mix: m}%>
+    <div class='card'>
+      <%=render partial: 'mix', locals: {mix: m}%>
+    </div>
   </div>
 <%end%>
