@@ -13,17 +13,23 @@
   </head>
 
   <body>
-    <h1>MeMix</h1>
-    <br>
-    <%=link_to 'Home', '/'%>
-    <%=link_to 'Profile', user_mixes_path(current_user) if current_user%>
-    <%=link_to 'Logout', '/logout' if current_user%>
-    <%=link_to 'Login', '/login' unless current_user%>
-   
-    <%=link_to 'Create Account', new_user_path unless current_user%>
-    
-    
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="blog-header">
+        <h1>MeMix</h1>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-nav">
+          <%=link_to 'Home', '/', class: 'nav-item nav-link'%>
+          <%=link_to 'Profile', user_mixes_path(current_user), class: 'nav-item nav-link' if current_user%>
+  
+
+          <%=link_to 'Logout', '/logout', class: 'nav-item nav-link' if current_user%>
+          <%=link_to 'Login', '/login', class: 'nav-item nav-link' unless current_user%>
+          <%=link_to 'Create Account', new_user_path, class: 'nav-item nav-link' unless current_user%>
+        </div>
+      </nav>
+      <%= yield %>
+     </div>
   </body>
 </html>
 
