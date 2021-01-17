@@ -16,7 +16,7 @@
  @import "bootstrap";
  
   .mix-container {
-    overflow: scroll;
+    overflow-y: scroll;
   }
  .card-container{
   display: inline-block;
@@ -25,9 +25,16 @@
   padding: 3px;
   margin: 1px;
  }
- .card {
+ .card{
   display: inline-block;
   width: 350px;
   height: 400px;
-  overflow: scroll;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
