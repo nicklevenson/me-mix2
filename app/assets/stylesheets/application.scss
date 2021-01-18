@@ -18,17 +18,18 @@
 
  .card-container{
   display: inline-block;
-  width: 350px;
+  width: 340px;
   height: 400px;
-  padding: 3px;
-  margin: 1px;
+  text-align: center;
+  margin: 10px;
  }
  .card{
   display: inline-block;
-  width: 350px;
+  width: 340px;
   height: 400px;
   text-align: center;
   overflow-y: scroll;
+  margin: auto;
 }
 
 ::-webkit-scrollbar {
