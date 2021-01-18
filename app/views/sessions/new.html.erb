@@ -1,8 +1,8 @@
-<%if @errors%>
-  <%@errors.each do |error|%>
-    <h4><%=error%></h4>
-  <%end%>
-<%end%>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
 <%=form_with url: '/login', method: :post do |f|%>
   <%=f.label :email %>
   <%=f.text_field :email%>
@@ -10,6 +10,6 @@
   <%=f.password_field :password%>
   <%=f.submit 'Login'%>
 <%end%>
-<%= link_to 'Login with Google', '/auth/google_oauth2' %>
+<%= button_to 'Login with Google', '/auth/google_oauth2' %>
 
-    <%=link_to "Log in with Facebook",'/auth/facebook'%>
+<%=button_to "Log in with Facebook",'/auth/facebook'%>

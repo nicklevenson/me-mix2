@@ -1,22 +1,20 @@
 class SessionsController < ApplicationController
   def new
-    
+
   end
 
   def create
-    @errors = []
+
     @user = User.find_by(email: params[:email])
     if @user 
       if @user.authenticate(params[:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        @errors << 'Incorrect password'
-        render :new
+        redirect_to '/login', alert: "Incorrect Password"
       end
     else
-      @errors << 'Incorrect email'
-      render :new
+      redirect_to '/login', alert: "Incorrect Email"
     end
   end
 
