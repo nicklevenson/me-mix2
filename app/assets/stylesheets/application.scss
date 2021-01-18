@@ -14,25 +14,39 @@
  *= require_self
  */
  @import "bootstrap";
- 
+
+
+ .title {
+   margin: 0;
+ }
+ .container {
+   padding: 0;
+ }
+ .search .row{
+   height: 50px;
+   align-items: center;
+ }
+
  .album {
    text-align: center;
+   background-color: transparent;
  }
 
  .card-container{
   display: inline-block;
-  width: 340px;
+  width: 350px;
   height: 400px;
   text-align: center;
   margin: 10px;
  }
  .card{
   display: inline-block;
-  width: 340px;
+  width: 350px;
   height: 400px;
   text-align: center;
   overflow-y: scroll;
   margin: auto;
+  padding: 10px;
 }
 
 ::-webkit-scrollbar {

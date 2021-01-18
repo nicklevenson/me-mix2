@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_154627) do
     t.string "email"
     t.string "uid"
     t.string "provider"
+    t.string "image", default: "https://icon-library.net//images/no-user-image-icon/no-user-image-icon-27.jpg"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
