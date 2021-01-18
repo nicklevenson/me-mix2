@@ -1,9 +1,3 @@
-<%= render partial: 'welcome/search'%>
+<%= render partial: 'search'%>
 
-  <%@results.each do |result|%>
-    <div class='card-container'>
-      <div class='card'>
-        <%=render_result(result)%>
-      </div>
-    </div>
-  <%end%>
+<%= render partial: 'results',locals: {results: @results}%>
