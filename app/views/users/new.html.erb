@@ -1,13 +1,4 @@
-<div class="form-signin">
-  <div class="card">
+
   <h3>Feeling mixed up? Create an account!</h3>
     <%=render partial: 'errors', locals: {user: @user}%>
-      <%=form_for @user do |f|%>
-        <%=f.text_field :username, class:"form-control", placeholder: "Memix Username" %> <br>
-        <%=f.text_field :email, class:"form-control", placeholder: "Your Email" %> <br>
-        <%=f.password_field :password, class:"form-control", placeholder: "New Password" %> <br>
-        <%=f.password_field :password_confirmation, class:"form-control", placeholder: "Password Confirmation" %> <br>
-        <%=f.submit%>
-      <%end%>
-  </div>
-</div>
+    <%=render partial: 'form', locals: {user: @user}%>
