@@ -1,7 +1,6 @@
-<% if user.errors.any? %>
-  <div class="form-errors">            
-    <% user.errors.full_messages.each do |msg| %>
-        <h4><%= msg %></h4>
-    <% end %>
-  </div>
+
+<% if user.errors.any? %>        
+  <% user.errors.full_messages.each do |msg| %>
+    <h4><%= msg %></h4>
+  <% end %>
 <% end %>
