@@ -3,11 +3,7 @@
         <div class="d-flex align-items-center">
            
             <div class="image">
-                <%if user.avatar.attached?%>
-                    <img src="<%=(url_for(user.avatar))%>">
-                <%else%>
-                    <img src="<%=user.image%>" class="rounded" width="155">
-                <%end%>
+                <%=profile_image(user)%>
                 <%if user == current_user%>
                     <%=link_to "Edit Profile", edit_user_path(user)%>
                 <%end%>
