@@ -5,6 +5,12 @@ module MixesHelper
     end
   end
 
+  def delete_link(mix)
+    if access
+      link_to "Delete Mix", user_mix_path(mix.user, mix), method: :delete
+    end
+  end
+
   def new_link
     if access
       link_to "New Mix", new_user_mix_path(current_user)

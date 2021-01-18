@@ -34,13 +34,15 @@ class MixesController < ApplicationController
   end
 
   def update
-   
     @mix = Mix.find(params[:id])
-    # @mix.contents = []
     @mix.update(mix_update_params)
-  
-   
     redirect_to user_mix_path(current_user, @mix)
+  end
+
+  def destroy
+    @mix = Mix.find(params[:id])
+    @mix.destroy
+    redirect_to user_mixes_path(current_user)
   end
 
   private
