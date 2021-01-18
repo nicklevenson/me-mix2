@@ -73,4 +73,12 @@ module WelcomeHelper
       render partial: "mixes/mix", locals: {mix: result}
     end
   end
+
+  def render_result(result)
+    if result.respond_to?(:id)
+      render partial: 'mixes/mix', locals: {mix: result}
+    else
+      render partial: 'contents/content', locals: {content: result}
+    end
+  end
 end

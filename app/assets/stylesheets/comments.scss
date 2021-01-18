@@ -6,9 +6,12 @@
  
 // }
 .comments-container {
-  width: 80%;
+  width: 95%;
   margin: auto;
- 
+  border: solid thin lightgray;
+  border-radius: 5px;
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
 .comment {
@@ -22,9 +25,16 @@
   padding: 5px;
 }
 
-.new_comment { 
+.new-comment-container {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.new-comment { 
   border: solid thin lightgray;
-  margin-top: 30px !important;
   max-width: 80%;
   min-width: 250px;
   margin: auto;
