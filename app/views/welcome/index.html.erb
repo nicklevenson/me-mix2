@@ -1,13 +1,14 @@
 <%= render partial: 'welcome/search'%>
-
-<%@results.each do |result|%>
-  <%if result.respond_to?(:id)%>
-  <div class='card-container'>
-    <div class='card'>
-      <%=render partial: 'mixes/mix', locals: {mix: result}%>
+<div class="album py-5 bg-light text-center">
+  <%@results.each do |result|%>
+    <%if result.respond_to?(:id)%>
+    <div class='card-container'>
+      <div class='card'>
+        <%=render partial: 'mixes/mix', locals: {mix: result}%>
+      </div>
     </div>
-  </div>
-  <%else%>
-    <%=render partial: 'contents/content', locals: {content: result}%>
+    <%else%>
+      <%=render partial: 'contents/content', locals: {content: result}%>
+    <%end%>
   <%end%>
-<%end%>
+</div>

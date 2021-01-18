@@ -7,10 +7,17 @@
 }
 
 .add-to-form {
-  background-color: white;
+  color: rgb(37, 37, 37);
+  background-color: rgb(204, 204, 204);
   position: absolute;
   bottom: 0;
   width: 100%;
   margin: auto;
   text-align: center;
+  padding: 3px;
+}
+
+.add-to-form input[type=text] {
+  background-color: rgb(250, 250, 250);
+  border: none;
 }
