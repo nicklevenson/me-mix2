@@ -4,4 +4,12 @@ module ApplicationHelper
       User.find(session[:user_id])
     end
   end
+  
+  def logged_in? 
+    if current_user
+      true
+    else
+      redirect_to '/login'
+    end
+  end
 end

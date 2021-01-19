@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :logged_in?
   def create
     params.inspect
     Like.create(like_params)
