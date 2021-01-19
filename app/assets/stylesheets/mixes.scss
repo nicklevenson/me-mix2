@@ -4,6 +4,13 @@
 .mix-container {
   overflow-y: scroll;
   overflow-x: hidden;
+  text-align: center; 
+}
+
+.edit-delete {
   text-align: center;
-  
+}
+
+.edit-delete svg{
+  font-size: 30px;
 }

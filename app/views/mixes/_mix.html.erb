@@ -1,4 +1,4 @@
-<div>
+<div class="edit-delete">
   <%=edit_link(mix)%><%=delete_link(mix)%>
 </div>
 <div class="mix-container">
@@ -7,11 +7,15 @@
   <i><%=mix.description%></i>
   <br>
   <%mix.contents.each do |content|%>
-    <%=render partial: 'contents/content', locals: {content: content}%>
-    <%content.specific_notes(mix).each do |note|%>
-      <%=render partial: 'notes/note', locals: {note: note}%>
-    <%end%>
-    <br>
+  <div class="card-container">
+      <div class="card">
+        <%=render partial: 'contents/content', locals: {content: content}%>
+        <%content.specific_notes(mix).each do |note|%>
+          <%=render partial: 'notes/note', locals: {note: note}%>
+        <%end%>
+        <br>
+      </div>
+    </div>
   <%end%>
  
   <%=no_contents(mix)%>
