@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :mixes
   end
+  resources :follow_relationships, only: [:create, :update, :destroy]
 
 
 end
