@@ -1,10 +1,13 @@
 class FollowRelationshipsController < ApplicationController
   def create
+  
     FollowRelationship.create(follow_params)
     redirect_to user_mixes_path(User.find(params[:follow_relationship][:followed_id]))
   end
 
   def destroy
+    FollowRelationship.find(params[:id]).destroy
+    redirect_to user_mixes_path(User.find(params[:follow_relationship][:followed_id]))
   end
 
   private
