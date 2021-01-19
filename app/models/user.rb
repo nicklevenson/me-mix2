@@ -14,6 +14,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, length: {minimum: 7}
 
+
+
   def follow(other_user)
     follow_relationships.create(follower_id: self.id, followed_id: other_user.id)
   end
