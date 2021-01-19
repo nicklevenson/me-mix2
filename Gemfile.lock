@@ -352,7 +352,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   dotenv-rails
-  hotwire-rails (~> 0.1.0)
+  hotwire-rails
   httparty
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
